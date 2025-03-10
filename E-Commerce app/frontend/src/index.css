@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    @apply bg-slate-100
+}
+*{
+    box-sizing: border-box;
+}
+.cats-list{
+    justify-self: center;
+    display:  flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    gap: 35px;
+    width: 100%;
+    max-width: 2000px;
+}
+.cats-list::-webkit-scrollbar{
+    display: none;
+}
+.prods-cont::-webkit-scrollbar{
+        display: none;
+    }
+    
+.cats-list .img-cont{
+    width: 90px;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.cats-list img{
+    border-radius: 50%;
+    width: 80px;
+    aspect-ratio: 1/1;
+}
