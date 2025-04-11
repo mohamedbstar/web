@@ -1,0 +1,445 @@
+*,::before,::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --bg-header : #048bfe;
+    --bg-body : #1c1c38;
+    --bg-lighter : #2d2d34;
+    --bg-profile : #44445a;
+    --circle-start : #eeaf26;
+    --circle-end : #7a5930;
+    --golden-color : #fabe3d;
+    font-size: .6em;
+    font-family: sans-serif;
+}
+body{
+    background-color: var(--bg-body);
+    color: white;
+    width: 100vw;
+}
+nav{
+    width: 100%;
+    font-size: 1rem;
+    width: 100%;
+    background-color: var(--bg-header);
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+    padding: .5em 1em;
+    gap: .5em;
+}
+.logo{
+    font-size: 1.5rem;
+    margin-right: auto;
+    color: var(--circle-start);
+    font-weight: bold;
+}
+.menu-container{
+    font-size: 1rem;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(30%);
+    background-color: rgba(161, 156, 156, 0.2);
+    color: white;
+    backdrop-filter: blur(10px);
+    padding: .5em 1em;
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    transition: all .2s;
+}
+.nav-menu{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    align-items: center;
+    justify-content: center;
+    gap: .3em;
+   
+}
+.nav-li{
+    font-size: 1.2em;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid var(--bg-body);
+}
+.nav-li:last-child{
+    border-bottom: none;
+}
+.hidden{
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+}
+
+.main-content{
+    font-size: 1rem;
+    padding: 5em ;
+}
+.main-content .info{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 4em;
+    position: relative;
+}
+.info .words{
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: .5em;
+    position: relative;
+    /*flex-grow: 1;*/
+}
+.words p{
+    font-size: 1.5rem;
+    max-width: 60%;
+}
+.words h1{
+    font-size: 2.5rem;
+}
+.info .image{
+    background: linear-gradient(to right, var(--circle-start), var(--circle-end));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 10em;
+    top: 0;
+    animation: goRight .5s linear;
+    /*flex-grow: 1;*/
+}
+.main-content .image img{
+    max-width: 15em;
+    height: auto;
+    align-self: center;
+    justify-self: center;
+    
+}
+.shooter{
+    position: relative;
+    left: 4em;
+    justify-content: center;
+    align-self: center;
+}
+
+.btn{
+    font-size: 1.5rem;
+    background-color: var(--bg-header);
+    color: white;
+    padding: .3em .4em;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 1px 1px 2px rgb(113, 113, 113);
+    width: 6em;
+}
+.btn:hover{
+    background-color: rgb(129, 122, 122);
+    color: white;
+}
+
+.packages{
+    font-size: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding:10em 5em;
+    gap: 2em;
+    
+}
+
+.package{
+    font-size: 1rem;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-lighter);
+    gap: 1em;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    
+    transition: all .3s;
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+    cursor: pointer;
+}
+.package:hover{
+    box-shadow: inset 2px 2px 5px var(--circle-start);
+}
+.package .package-icon{
+    color: var(--bg-header);
+}
+.package:last-child .package-icon{
+    color: var(--golden-color);
+}
+.package:last-child .btn{
+    background-color: var(--golden-color);
+    color: black;
+}
+.sports{
+    font-size: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.sports .deadlift-image{
+    max-width: 22em;
+    animation: slideLeft linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+}
+.sports .sports-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+}
+.sports-info .upper{
+    font-size: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    gap: .5em;
+}
+.sports-info .upper i{
+    color: var(--bg-lighter);
+}
+.sports-info .upper h1{
+    color: rgba(255, 255, 255, 0.8);
+}
+.sports-info .lower{
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3em;
+}
+.sports-double{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 3em;
+}
+.sports-info .lower .sport{
+    font-size: 1rem;
+    width: 22em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1em;
+    background-color: var(--bg-lighter);
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding: 2em;
+    position: relative;
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+    transition: all .3s;
+    cursor: pointer;
+}
+.sports-info .lower .sport:hover{
+    box-shadow: inset 2px 2px 5px var(--circle-start);
+}
+
+.lower .sport i{
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    color: var(--bg-header);
+}
+.slider{
+    font-size: 1rem;
+    width: 70%;
+    margin-inline: auto;
+    margin-top: 7em;
+    padding: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--bg-lighter);
+    border-radius: 10px;
+    gap: 3em;
+}
+.slider .slide{
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+}
+.slider img{
+    font-size: 1rem;
+    width: 15em;
+}
+
+.profiles{
+    font-size: 1rem;
+    width: 70%;
+    margin-inline: auto;
+    margin-top: 7em;
+    padding: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--bg-lighter);
+    border-radius: 10px;
+    gap: 3em;
+}
+
+.profiles .profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    background-color: var(--bg-profile);
+    padding: 2em;
+    border-radius: 10px;
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+    transition: all .3s;
+}
+.profile img{
+    max-width: 10em;
+}
+.profile i{
+    color: var(--golden-color);
+}
+.profile i:last-child{
+    color: white;
+}
+
+footer{
+    font-size: 1rem;
+    background-color: var(--bg-header);
+    padding: 2em;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 5em;
+}
+footer .column{
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+footer .column h2{
+    font-size: 2rem;
+}
+footer .column p{
+    max-width: 50%;
+    font-size: 1.2rem;
+}
+/*.sport.visible{
+    transform: translateX(0);
+}
+.package.visible{
+    transform: translateX(0);
+}
+.profile.visible{
+    transform: translateX(0);
+}*/
+/*@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}*/
+@keyframes appear {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+}
+@keyframes slideLeft{
+    from{
+        opacity: 0;
+        transform: translateX(-200px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes goRight{
+    from{
+        opacity: 0;
+        transform: translateX(-200px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@media (max-width:500px){
+    /*.info .image{
+        position: relative;
+
+    }*/
+}
+@media (min-width: 500px){
+    :root{
+        font-size: .8em;
+    }
+    .menu-btn{
+        display: none;
+    }
+    .menu-container{
+        position: relative;
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+        background: none;
+        transform: translate(0,0);
+        margin-left: auto;
+    }
+    .nav-menu{
+        flex-direction: row;
+        flex-wrap: nowrap;
+        margin-left: auto;
+        gap: 2em;
+    }
+    .nav-li{
+        background-color: transparent;
+        width: auto;
+        color: white;
+        border: none;
+    }
+}
+@media (max-width:1100px){
+    .info{
+        flex-direction: column;
+    }
+    .info .image{
+        position: relative;
+        margin-inline: auto;
+        max-width: 15em;
+    }
+    
+}
+@media (min-width: 1250px){
+    :root{
+        font-size: 1em;
+    }
+    .deadlift-image img{
+        width: 30em;
+    }
+}
